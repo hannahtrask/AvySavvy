@@ -1,57 +1,44 @@
 import Head from 'next/head';
+import Link from 'next/Link';
 import styles from '../styles/Home.module.css';
+import Footer from './footer';
+import Layout from '../components/layout';
 
 export default function Home() {
 	return (
-		<div className={styles.container}>
-			<Head>
-				<title>Avy Savvy</title>
-				<link rel='icon' href='../public/snow.png' />
-			</Head>
+		<Layout>
+			<div className={styles.container}>
+				<Head>
+					<title>Avy Savvy</title>
+					<link rel='icon' href='../public/snow.png' />
+				</Head>
 
-			<main className={styles.main}>
-				<h1 className={styles.title}>
-					Avy Savvy
-				</h1>
+				<main className={styles.main}>
+					<h1 className={styles.title}>Avy Savvy</h1>
 
-				<div className={styles.grid}>
-					<a href='https://nextjs.org/docs' className={styles.card}>
-						<h3>Documentation &rarr;</h3>
-						<p>Find in-depth information about Next.js features and API.</p>
-					</a>
+					<Link href='/backcountry/form'>
+						<button>enter</button>
+					</Link>
 
-					<a href='https://nextjs.org/learn' className={styles.card}>
-						<h3>Learn &rarr;</h3>
-						<p>Learn about Next.js in an interactive course with quizzes!</p>
-					</a>
-
-					<a
-						href='https://github.com/vercel/next.js/tree/master/examples'
-						className={styles.card}>
-						<h3>Examples &rarr;</h3>
-						<p>Discover and deploy boilerplate example Next.js projects.</p>
-					</a>
-
-					<a
-						href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-						className={styles.card}>
-						<h3>Deploy &rarr;</h3>
+					<div>
 						<p>
-							Instantly deploy your Next.js site to a public URL with Vercel.
+							Skiing is inherently dangerous. If you are planning on leaving a
+							resort and entering the backcountry, make sure you have the proper
+							equipment, knowledge, a partner, and a plan. If you don't know,
+							DON'T GO!
 						</p>
-					</a>
-				</div>
-			</main>
+						<p>
+							This app is not meant to and{' '}
+							<span style={{ fontWeight: '700' }}>will not</span> replace proper
+							backcountry training. If you have not skied backcountry before,
+							please consider taking an Avalanche Safety Level I course at a
+							minimum before entering the backcountry.
+						</p>
+					</div>
+				</main>
 
-			<footer className={styles.footer}>
-				<a
-					href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-					target='_blank'
-					rel='noopener noreferrer'>
-					{' '}
-					<img src='../public/snow.png' alt='snowflake logo' className={styles.logo} />
-				</a>
-			</footer>
-		</div>
+				<Footer />
+			</div>
+		</Layout>
 	);
 }
