@@ -1,5 +1,11 @@
 @import './config';
 
 .station {
-    @include station
+    @include station;
+    min-width: 350px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
 }

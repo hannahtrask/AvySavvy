@@ -1,36 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, useCycle } from 'framer-motion';
 import axios from 'axios';
 import Link from 'next/link';
+import styles from '../styles/photos.module.scss';
+import Footer from '../components/footer';
 
-const loaderVariants = {
-	animationOne: {
-		x: [-20, 20],
-		y: [0, -30],
-		transition: {
-			x: {
-				yoyo: Infinity,
-				duration: 0.5,
-			},
-			y: {
-				yoyo: Infinity,
-				duration: 0.25,
-				ease: 'easeOut',
-			},
-		},
-	},
-	animationTwo: {
-		y: [0, -40],
-		x: 0,
-		transition: {
-			y: {
-				yoyo: Infinity,
-				duration: 0.25,
-				ease: 'easeOut',
-			},
-		},
-	},
-};
 
 export default function Photos() {
 	const [photos, setPhotos] = useState([]);
@@ -53,11 +26,8 @@ export default function Photos() {
 			{photos &&
 				photos.map((pic) => (
 					<div
-						className='indiv'
-						drag
-						dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-						dragElastic={0.5}>
-						<img src={pic.img} alt={pic.alt} />
+						className={styles.pic}>
+						<img src={pic.img} alt={pic.alt} className={styles.indiv} />
 						<button className='delete' onClick={() => removePic(pic)}>
 							DELETE PIC
 						</button>
@@ -66,16 +36,7 @@ export default function Photos() {
 		</>
 	);
 
-	const [animation, cycleAnimation] = useCycle('animationOne', 'animationTwo');
-	const loading = (
-		<>
-			<motion.div
-				className='loader'
-				variants={loaderVariants}
-				animate={animation}></motion.div>
-			<div onClick={() => cycleAnimation()}></div>
-		</>
-	);
+	const loading = <h1> loading ... </h1>
 
 	/* new pic */
 	const emptyPic = { img: '', alt: '' };
@@ -110,10 +71,10 @@ export default function Photos() {
 
 	return (
 		<div>
-			<h1>gallery</h1>
-			<h3>where can skiing take you?</h3>
-			<div className='flex'>{photos.length > 0 ? photoDisplay() : loading}</div>
-			<form onSubmit={handleSubmit} className='add-photo'>
+			<h1 className={styles.heading1}>gallery</h1>
+			<h3 className={styles.heading2}>where can skiing take you?</h3>
+			<div className={styles.flex}>{photos.length > 0 ? photoDisplay() : loading}</div>
+			<form onSubmit={handleSubmit} className={styles.form}>
 				<h2>ADD A PIC</h2>
 				<h4>image url</h4>
 				<input
@@ -134,13 +95,14 @@ export default function Photos() {
 				<input
 					type='submit'
 					value='ADD YOUR PIC'
-					className='submit'
+					className={styles.button}
 					onChange={handleChange}
 				/>
 			</form>
             <Link href='/'>
-                <button>back home</button>
+                <button className={styles.button}>back home</button>
             </Link>
+			<Footer />
 		</div>
 	);
 }

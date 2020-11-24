@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from '../../styles/datalist.module.scss';
 
 const Datalist = (props) => {
-    console.log(props)
+	console.log(props);
 	const [allData, setAllData] = useState([]);
 
 	useEffect(() => {
@@ -14,7 +14,9 @@ const Datalist = (props) => {
 
 	const allAreas = allData.map((station) => {
 		return (
-			<div className={styles.station} key={station.station_information.elevation}>
+			<div
+				className={styles.station}
+				key={station.station_information.elevation}>
 				<h2>{station.station_information.name}</h2>
 				<h3>elevation: {station.station_information.elevation}</h3>
 				<p>
@@ -31,7 +33,11 @@ const Datalist = (props) => {
 
 	const loading = <h1>loading ... </h1>;
 
-	return <div>{props.snotelData ? allAreas : loading}</div>;
+	return (
+		<>
+			<div className={styles.flex}>{props.snotelData ? allAreas : loading}</div>
+		</>
+	);
 };
 
 export default Datalist;

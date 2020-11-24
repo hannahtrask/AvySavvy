@@ -1,14 +1,21 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import styles from './layout.module.scss';
 
 const Layout = ({ children }) => {
-    console.log('this is children', children);
-    return (
-    <div>
-        <Link href='/backcountry/form'><a>backcountry</a></Link>
-        <br />
-        <Link href='/photos'><a>photos</a></Link>
-        { children }
-    </div>)
-}
+	return (
+		<div className={styles.title}>
+			<Link href='/'>
+				<a className={styles.header}>avy savvy</a>
+			</Link>
+			<Link href='/backcountry/form'>
+				<a className={styles.link}>backcountry</a>
+			</Link>
+			<Link href='/photos'>
+				<a className={styles.link}>photos</a>
+			</Link>
+			{children}
+		</div>
+	);
+};
 
-export default Layout
+export default Layout;

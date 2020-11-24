@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Datalist from './datalist';
 import { useState } from 'react';
 import styles from '../../styles/form.module.scss';
-import Footer from '../footer';
+import Footer from '../../components/footer';
 
 export default function Form() {
 	const [areaData, setAreaData] = useState([]);

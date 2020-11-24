@@ -1,0 +1,21 @@
+@import '../styles/config';
+
+.title {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px;
+	margin: 0 auto;
+	.link {
+		font-family: 'Kreon', serif;
+		padding: 20px;
+		margin: 20px;
+	}
+	.link:hover {
+		color: $lightPurple;
+	}
+}
+
+.header {
+	font-family: 'Pacifico', cursive;
+	font-size: 3rem;
+}

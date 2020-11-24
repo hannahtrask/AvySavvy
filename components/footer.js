@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from './footer.module.scss';
 
 const Footer = () => {
 	const [quote, setQuote] = useState("Paradise doesn't have to be warm.");
@@ -24,7 +25,7 @@ const Footer = () => {
 		getQuote();
 	}, [quote]);
 
-	return <div className='footer'>{quote}</div>;
+	return <div className={styles.footer}>{quote}</div>;
 };
 
 export default Footer;
