@@ -74,7 +74,7 @@ export default function Photos() {
 			<h1 className={styles.heading1}>gallery</h1>
 			<h3 className={styles.heading2}>where can skiing take you?</h3>
 			<div className={styles.flex}>{photos.length > 0 ? photoDisplay() : loading}</div>
-			<form onSubmit={handleSubmit} className={styles.form}>
+			<form onSubmit={handleSubmit} className={styles.form} id='form'>
 				<h2>ADD A PIC</h2>
 				<h4>image url</h4>
 				<input

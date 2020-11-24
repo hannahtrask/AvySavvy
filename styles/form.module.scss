@@ -1,33 +1,37 @@
 @import './config';
 
 .button {
-    @include button;
-    padding: 12px;
-    margin: 0 auto;
+	@include button;
+	padding: 12px;
+}
+
+.button2 {
+	@include button;
+	margin-left: 37.5vw;
 }
 
 .title {
-    font-family: 'Kreon', serif;
-    text-align: center;
-    padding: 10px;
-    letter-spacing: 1px;
-    font-weight: 400;
+	font-family: 'Kreon', serif;
+	text-align: center;
+	padding: 10px;
+	letter-spacing: 1px;
+	font-weight: 400;
 }
 
 .text {
-    letter-spacing: 1px;
-    text-align: center;
+	letter-spacing: 1px;
+	text-align: center;
 }
 
 .form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    input {
-        border: none;
-        border-radius: 5px;
-        padding: 12px;
-        margin: 5px;
-    }
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	input {
+		border: none;
+		border-radius: 5px;
+		padding: 12px;
+		margin: 5px;
+	}
 }

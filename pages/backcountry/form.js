@@ -55,7 +55,7 @@ export default function Form() {
 			</div>
 			{snotelData && <Datalist snotelData={snotelData} />}
 			<Link href='/'>
-				<button className={styles.button}>back to home</button>
+				<button className={styles.button2}>back to home</button>
 			</Link>
 			<Footer />
 		</>

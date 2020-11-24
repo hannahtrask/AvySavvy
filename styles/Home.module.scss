@@ -1,44 +1,44 @@
 @import './config';
 
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	min-height: 100vh;
+	padding: 0 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	padding: 5rem 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .button {
-  @include button;
-  width: 15vw;
-  height: 10vh;
-  font-size: 1rem;
+	@include button;
+	width: 15vw;
+	height: 10vh;
+	font-size: 1rem;
 }
 
 .title {
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 1px;
-  font-size: 3rem;
+	font-family: 'Pacifico', cursive;
+	letter-spacing: 1px;
+	font-size: 3rem;
 }
 
 .text {
-  @include blurb;
-  margin-top: 50px;
+	@include blurb;
+	margin-top: 50px;
 }
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+	.grid {
+		width: 100%;
+		flex-direction: column;
+	}
 }
