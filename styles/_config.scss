@@ -1,0 +1,45 @@
+/*COLORS*/
+$darkBlue:#0b2040;
+$greyBlue:#576D91;
+$lightBlue:#A3B9E2;
+$lightPurple:#b889b7;
+$lightPink:#E5D6E1;
+
+$buttonColor: rgba(178, 139, 201, 0.7);
+$footerColor: rgba(11, 32, 64, 0.5);
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;500;700&family=Open+Sans:wght@300;400&family=Pacifico&display=swap');
+/* 
+font-family: 'Kreon', serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Pacifico', cursive;
+*/
+
+@mixin button {
+	border: none;
+	border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: $buttonColor;
+    color: white;
+    cursor: pointer;
+}
+
+@mixin blurb {
+    font-size: .9rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 60vw;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+@mixin station {
+    background-color: rgba(0,0,0,0.4);
+    width: 40vw;
+    margin: 10px auto;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+}

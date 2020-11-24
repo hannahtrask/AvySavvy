@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/Link';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 import Footer from './footer';
 import Layout from '../components/layout';
 
@@ -17,17 +17,17 @@ export default function Home() {
 					<h1 className={styles.title}>Avy Savvy</h1>
 
 					<Link href='/backcountry/form'>
-						<button>enter</button>
+						<button className={styles.button}>enter</button>
 					</Link>
 
 					<div>
-						<p>
+						<p className={styles.text}>
 							Skiing is inherently dangerous. If you are planning on leaving a
 							resort and entering the backcountry, make sure you have the proper
 							equipment, knowledge, a partner, and a plan. If you don't know,
 							DON'T GO!
 						</p>
-						<p>
+						<p className={styles.text}>
 							This app is not meant to and{' '}
 							<span style={{ fontWeight: '700' }}>will not</span> replace proper
 							backcountry training. If you have not skied backcountry before,
@@ -37,7 +37,7 @@ export default function Home() {
 					</div>
 				</main>
 
-				<Footer />
+				<Footer className={styles.footer} />
 			</div>
 		</Layout>
 	);

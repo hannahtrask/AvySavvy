@@ -1,15 +1,14 @@
 import Link from 'next/Link';
 import Datalist from './datalist';
 import { useState } from 'react';
+import styles from '../../styles/form.module.scss';
+import Footer from '../footer';
 
 export default function Form() {
-	//from app!!
 	const [areaData, setAreaData] = useState([]);
 	const [snotelData, setSnotelData] = useState([]);
 	const [lat, setLat] = useState('');
 	const [lng, setLng] = useState('');
-
-	/*  FROM FORMS!!  */
 	const [zipCode, setZipCode] = useState('');
 
 	const handleSearch = async (zipcode) => {
@@ -24,7 +23,7 @@ export default function Form() {
 		const snotel = `https://avysavvy.herokuapp.com/`;
 		const response = await fetch(snotel + `request/${lat}/${lng}`);
 		const jsonObj = await response.json();
-		console.log('this is jsonObj', jsonObj)
+		console.log('this is jsonObj', jsonObj);
 		setSnotelData(await jsonObj);
 	};
 
@@ -36,28 +35,29 @@ export default function Form() {
 
 	return (
 		<>
-			<h1>form page</h1>
-			<div className='parent'>
-				<form className='search' onSubmit={handleSubmit}>
-					<h4>What's your zip?</h4>
+			<h1 className={styles.title}>Let's go skiing.</h1>
+			<div className={styles.form}>
+				<form className={styles.form} onSubmit={handleSubmit}>
+					<h4 className={styles.text}>what's your zip?</h4>
 					<input
 						type='text'
 						name='resort'
 						value={zipCode}
 						onChange={(e) => setZipCode(e.target.value)}
 					/>
-					<div className='button-parent'>
-						<input type='submit' value='SEND IT' className='submit' />
+					<div>
+						<input type='submit' value='SEND IT' className={styles.button} />
 						<Link href='/photos'>
-							<button>photo gallery</button>
+							<button className={styles.button}>photo gallery</button>
 						</Link>
 					</div>
 				</form>
 			</div>
 			{snotelData && <Datalist snotelData={snotelData} />}
 			<Link href='/'>
-				<button>back to home</button>
+				<button className={styles.button}>back to home</button>
 			</Link>
+			<Footer />
 		</>
 	);
 }

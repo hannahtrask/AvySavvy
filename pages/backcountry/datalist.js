@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from '../../styles/datalist.module.scss';
 
 const Datalist = (props) => {
     console.log(props)
@@ -13,7 +14,7 @@ const Datalist = (props) => {
 
 	const allAreas = allData.map((station) => {
 		return (
-			<div className='area-data' key={station.station_information.elevation}>
+			<div className={styles.station} key={station.station_information.elevation}>
 				<h2>{station.station_information.name}</h2>
 				<h3>elevation: {station.station_information.elevation}</h3>
 				<p>
