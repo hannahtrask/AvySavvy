@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 
 const Layout = ({ children }) => {
     console.log('this is children', children);

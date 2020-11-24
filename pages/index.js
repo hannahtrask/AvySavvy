@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/Home.module.scss';
 import Footer from './footer';
 import Layout from '../components/layout';

@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import Datalist from './datalist';
 import { useState } from 'react';
 import styles from '../../styles/form.module.scss';

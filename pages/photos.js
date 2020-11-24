@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import axios from 'axios';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const loaderVariants = {
 	animationOne: {
