@@ -11,7 +11,8 @@ const Datalist = (props) => {
 		const getAllData = async () => {
 			setAllData(props.snotelData);
 		};
-		getAllData();
+        getAllData();
+        console.log('this is allData', allData)
 	});
 
 	const allAreas = allData.map((station) => {
@@ -30,7 +31,7 @@ const Datalist = (props) => {
 					{station.station_information.location.lng}
 				</p>
 				<p>
-					<Link href={`/backcountry/${station.station_information.name}`}>more info</Link>
+					<Link href={`/backcountry/${station.station_information.triplet}`}>more info</Link>
 				</p>
 			</div>
 		);
