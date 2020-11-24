@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 
-const Place = (props) => {
+const Place = () => {
+
 	const router = useRouter();
 	console.log(router)
 	return (

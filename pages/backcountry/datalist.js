@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../../styles/datalist.module.scss';
 import Link from 'next/link';
+import Place from './[place]';
 
 const Datalist = (props) => {
 	console.log(props);
@@ -12,13 +13,6 @@ const Datalist = (props) => {
 		};
 		getAllData();
 	});
-
-	// <div key={index}>
-	// 	<Link href={`/${e.vehicle}/${e.name}`}>
-	// 		<a>
-	// 			navigate to {e.name}'s {e.vehicle}
-	// 		</a>
-	// 	</Link>
 
 	const allAreas = allData.map((station) => {
 		return (
@@ -36,7 +30,7 @@ const Datalist = (props) => {
 					{station.station_information.location.lng}
 				</p>
 				<p>
-					<Link href={`/backcountry/${station.station_information.name}`}>click</Link>
+					<Link href={`/backcountry/${station.station_information.name}`}>more info</Link>
 				</p>
 			</div>
 		);
