@@ -7,13 +7,14 @@
 
 .button2 {
 	@include button;
-    margin-left: 42vw;
-    margin-top: 15vh;
-    margin-bottom: 20vh;
-    padding: 20px;
+	margin-left: 42vw;
+	margin-top: 15vh;
+	margin-bottom: 20vh;
+	padding: 20px;
 }
 
 .title {
+    margin-top: 10vh;
 	font-family: 'Kreon', serif;
 	text-align: center;
 	padding: 10px;
@@ -22,6 +23,7 @@
 }
 
 .text {
+    margin-top: 10vh;
 	letter-spacing: 1px;
 	text-align: center;
 }
