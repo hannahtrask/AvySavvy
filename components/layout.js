@@ -4,9 +4,6 @@ import styles from './layout.module.scss';
 const Layout = ({ children }) => {
 	return (
 		<div className={styles.title}>
-			<Link href='/'>
-				<a className={styles.header}>avy savvy</a>
-			</Link>
 			<Link href='/backcountry/form'>
 				<a className={styles.link}>backcountry</a>
 			</Link>
