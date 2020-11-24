@@ -5,7 +5,7 @@
 
  - [Github Frontend link](https://github.com/hannahtrask/capstone)
  - [Github Backend Link](https://github.com/hannahtrask/capstone-backend)
- - [Netlify Link](https://avysavvy.netlify.app/)
+ - [Vercel Link](https://avysavvy.vercel.app/)
  - [Heroku Link](https://avysavvy.herokuapp.com/)
 
 ## Project Description
