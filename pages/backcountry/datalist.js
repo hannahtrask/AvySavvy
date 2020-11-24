@@ -21,13 +21,14 @@ const Datalist = (props) => {
 				className={styles.station}
 				key={station.station_information.elevation}>
 				<h2>{station.station_information.name}</h2>
+                <h2><span className={styles.bold}>triplet</span>:{' '}{station.station_information.triplet}</h2>
 				<h3>elevation: {station.station_information.elevation}</h3>
 				<p>
-					<span className='bold'>latitude:</span>{' '}
+					<span className={styles.bold}>latitude</span>:{' '}
 					{station.station_information.location.lat}
 				</p>
 				<p>
-					<span className='bold'>longitude:</span>{' '}
+					<span className={styles.bold}>longitude</span>:{' '}
 					{station.station_information.location.lng}
 				</p>
 				<p>
