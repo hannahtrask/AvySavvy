@@ -7,7 +7,10 @@
 
 .button2 {
 	@include button;
-	margin-left: 37.5vw;
+    margin-left: 42vw;
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+    padding: 20px;
 }
 
 .title {
