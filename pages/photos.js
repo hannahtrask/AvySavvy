@@ -26,7 +26,7 @@ export default function Photos() {
 			{photos &&
 				photos.map((pic) => (
 					<div
-						className={styles.pic}>
+						className={styles.pic} key={pic.id}>
 						<img src={pic.img} alt={pic.alt} className={styles.indiv} />
 						<button className='delete' onClick={() => removePic(pic)}>
 							DELETE PIC
