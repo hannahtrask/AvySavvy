@@ -3,6 +3,7 @@
 .button {
 	@include button;
 	padding: 12px;
+	transition: all .2s ease-in-out;
 }
 
 .button2 {

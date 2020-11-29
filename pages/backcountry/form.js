@@ -3,6 +3,18 @@ import Datalist from './datalist';
 import { useState } from 'react';
 import styles from '../../styles/form.module.scss';
 import Footer from '../../components/footer';
+import { motion } from 'framer-motion';
+
+const buttonVariants = {
+	hover: {
+		scale: 1.3,
+		textShadow: '0px 0px 8px rgb(255, 255, 255)',
+		boxShadow: '0px 0px 8px rgb(255, 255, 255)',
+		transition: {
+			duration: 0.2,
+		},
+	},
+};
 
 export default function Form() {
 	const [areaData, setAreaData] = useState([]);
@@ -46,16 +58,32 @@ export default function Form() {
 						onChange={(e) => setZipCode(e.target.value)}
 					/>
 					<div>
-						<input type='submit' value='SEND IT' className={styles.button} />
+						<motion.input
+							variants={buttonVariants}
+							whileHover='hover'
+							type='submit'
+							value='SEND IT'
+							className={styles.button}
+						/>
 						<Link href='/photos'>
-							<button className={styles.button}>photo gallery</button>
+							<motion.button
+								variants={buttonVariants}
+								whileHover='hover'
+								className={styles.button}>
+								photo gallery
+							</motion.button>
 						</Link>
 					</div>
 				</form>
 			</div>
 			{snotelData && <Datalist snotelData={snotelData} />}
 			<Link href='/'>
-				<button className={styles.button2}>back to home</button>
+				<motion.button
+					variants={buttonVariants}
+					whileHover='hover'
+					className={styles.button2}>
+					back to home
+				</motion.button>
 			</Link>
 			<Footer />
 		</>

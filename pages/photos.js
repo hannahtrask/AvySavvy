@@ -3,7 +3,18 @@ import axios from 'axios';
 import Link from 'next/link';
 import styles from '../styles/photos.module.scss';
 import Footer from '../components/footer';
+import { motion } from 'framer-motion';
 
+const buttonVariants = {
+	hover: {
+		scale: 1.3,
+		textShadow: '0px 0px 8px rgb(255, 255, 255)',
+		boxShadow: '0px 0px 8px rgb(255, 255, 255)',
+		transition: {
+			duration: 0.5,
+		},
+	},
+};
 
 export default function Photos() {
 	const [photos, setPhotos] = useState([]);
@@ -25,18 +36,21 @@ export default function Photos() {
 		<>
 			{photos &&
 				photos.map((pic) => (
-					<div
-						className={styles.pic} key={pic.id}>
+					<div className={styles.pic} key={pic.id}>
 						<img src={pic.img} alt={pic.alt} className={styles.indiv} />
-						<button className='delete' onClick={() => removePic(pic)}>
+						<motion.button
+							variants={buttonVariants}
+							whileHover='hover'
+							className='delete'
+							onClick={() => removePic(pic)}>
 							DELETE PIC
-						</button>
+						</motion.button>
 					</div>
 				))}
 		</>
 	);
 
-	const loading = <h1> loading ... </h1>
+	const loading = <h1> loading ... </h1>;
 
 	/* new pic */
 	const emptyPic = { img: '', alt: '' };
@@ -73,7 +87,9 @@ export default function Photos() {
 		<div>
 			<h1 className={styles.heading1}>gallery</h1>
 			<h3 className={styles.heading2}>where can skiing take you?</h3>
-			<div className={styles.flex}>{photos.length > 0 ? photoDisplay() : loading}</div>
+			<div className={styles.flex}>
+				{photos.length > 0 ? photoDisplay() : loading}
+			</div>
 			<form onSubmit={handleSubmit} className={styles.form} id='form'>
 				<h2>ADD A PIC</h2>
 				<h4>image url</h4>
@@ -92,16 +108,23 @@ export default function Photos() {
 					onChange={handleChange}
 				/>
 				<br />
-				<input
+				<motion.input
+					variants={buttonVariants}
+					whileHover='hover'
 					type='submit'
 					value='ADD YOUR PIC'
 					className={styles.button}
 					onChange={handleChange}
 				/>
 			</form>
-            <Link href='/'>
-                <button className={styles.button}>back home</button>
-            </Link>
+			<Link href='/'>
+				<motion.button
+					variants={buttonVariants}
+					whileHover='hover'
+					className={styles.button}>
+					back home
+				</motion.button>
+			</Link>
 			<Footer />
 		</div>
 	);
