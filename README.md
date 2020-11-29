@@ -119,15 +119,17 @@ app.get('/request/:triplet', async (req, res) => {
 
   ### Time Estimates
   
+Upon further research, resort data requires payment, which is outside of this project's budget.
+
 | Task | Priority | Estimated Time | Actual Time |
 | ---   | :---:   |  :---:         |       :---: |
-|   Animations    | m       | 5              | n/a         |
+|   Animations    | m       | 5              | 2         |
 | Ski Quote Generator          | h | 4  | 1.5   |
 | Resort API Call            | h | 2  | n/a   |
 | Resort Display            | h | 3  | n/a   |
 | Resort Image Gallery            | h | 2  | n/a   |
 | Resort Chart            | h | 4  | n/a   |
-| Total | h       | 14             | x           |
+| Total | h       | 14             | 3.5           |
 
 ## Additional Libraries
 
