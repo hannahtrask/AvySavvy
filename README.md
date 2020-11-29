@@ -93,7 +93,8 @@ app.get('/request/:triplet', async (req, res) => {
 | BC Chart            | h | 3  | 2   |
 | BC Image Gallery            | h | 2  | 3   |
 | Deploy           | h | 1  | .5   |
-| Total            | h | 25 | 18.5  |
+| Responsiveness | h | 3 | 4 |
+| Total            | h | 28 | 22.5  |
 
 #### Backend
 
@@ -103,7 +104,8 @@ app.get('/request/:triplet', async (req, res) => {
 | Heroku Deploy            | h | 2  | 2   |
 | Full CRUD           | h | 3  | 1   |
 | MongoDB Connection            | h | 2  | 1   |
-| Total            | h | 10 | 8  |
+| Express Research | h | 1 | 4 |
+| Total            | h | 11 | 12  |
     
  ### Post MVP
  
