@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from '../../styles/datalist.module.scss';
 import Link from 'next/link';
-import Place from './[place]';
 
 const Datalist = (props) => {
 	console.log(props);
@@ -22,7 +21,7 @@ const Datalist = (props) => {
 				key={station.station_information.elevation}>
 				<h2>{station.station_information.name}</h2>
                 <h2><span className={styles.bold}>triplet</span>:{' '}{station.station_information.triplet}</h2>
-				<h3>elevation: {station.station_information.elevation}</h3>
+		<h3>elevation: {station.station_information.elevation}</h3>
 				<p>
 					<span className={styles.bold}>latitude</span>:{' '}
 					{station.station_information.location.lat}

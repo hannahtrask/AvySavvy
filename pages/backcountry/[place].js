@@ -3,9 +3,8 @@ import styles from '../../styles/place.module.scss';
 import { useState, useEffect } from 'react';
 import Chart from 'chart.js';
 
-const Place = (props) => {
+const Place = () => {
 	const router = useRouter();
-	console.log(router.query.place);
 
 	useEffect(() => {
 		const placeAPICall = async () => {

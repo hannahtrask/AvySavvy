@@ -24,7 +24,7 @@ I chose three typefaces for this application. While generally speaking, it's bad
 
 ## Backend
 
-Here's a lil code snippet of the Express proxy server. This sets the default route to a fixed set of data. Another route exists to accept query parameters and return corresponding data.
+Here's a lil code snippet of the Express proxy server. This sets the default route to a set of data dependent on query parameters.
 
 ```javascript
 app.use(cors());
@@ -33,8 +33,20 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/', async (req, res) => {
-	const response = await fetch('http://api.powderlin.es/closest_stations?lat=43.4695&lng=-110.7892&data=true&days=5&count=5');
+app.get('/request/:lat/:long', async (req, res) => {
+	const { lat, long } = req.params;
+	const response = await fetch(
+		`http://api.powderlin.es/closest_stations?lat=${lat}&lng=${long}&data=true&days=5&count=5`
+	);
+	const data = await response.json();
+	res.json(await data);
+});
+
+app.get('/request/:triplet', async (req, res) => {
+	const { triplet } = req.params;
+	const response = await fetch(
+		`http://api.powderlin.es/station/${triplet}?days=5`
+	);
 	const data = await response.json();
 	res.json(await data);
 });
@@ -75,23 +87,23 @@ app.get('/', async (req, res) => {
 | Task | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---:  | :---: |
 | Homepage            | h | 2  | 3   |
-| BC Welcome            | h | 2  | x   |
-| BC API Call            | h | 2  | x   |
-| BC Display            | h | 4  | x   |
-| BC Chart            | h | 3  | x   |
-| BC Image Gallery            | h | 2  | x   |
+| BC Welcome            | h | 2  | 1   |
+| BC API Call            | h | 2  | 5   |
+| BC Display            | h | 4  | 4   |
+| BC Chart            | h | 3  | 2   |
+| BC Image Gallery            | h | 2  | 3   |
 | Deploy           | h | 1  | .5   |
-| Total            | h | 25 | x  |
+| Total            | h | 25 | 18.5  |
 
 #### Backend
 
 | Task | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---:  | :---: |
-| Express Server            | h | 3  | 3   |
-| Heroku Deploy            | h | 2  | x   |
-| Full CRUD           | h | 3  | x   |
-| MongoDB Connection            | h | 2  | x   |
-| Total            | h | 10 | x  |
+| Express Server            | h | 3  | 4   |
+| Heroku Deploy            | h | 2  | 2   |
+| Full CRUD           | h | 3  | 1   |
+| MongoDB Connection            | h | 2  | 1   |
+| Total            | h | 10 | 8  |
     
  ### Post MVP
  
@@ -108,12 +120,11 @@ app.get('/', async (req, res) => {
 | Task | Priority | Estimated Time | Actual Time |
 | ---   | :---:   |  :---:         |       :---: |
 |   Animations    | m       | 5              | n/a         |
-|    SWE Change Graph   | l       | 5              |       x     |
 | Ski Quote Generator          | h | 4  | 1.5   |
-| Resort API Call            | h | 2  | x   |
-| Resort Display            | h | 3  | x   |
-| Resort Image Gallery            | h | 2  | x   |
-| Resort Chart            | h | 4  | x   |
+| Resort API Call            | h | 2  | n/a   |
+| Resort Display            | h | 3  | n/a   |
+| Resort Image Gallery            | h | 2  | n/a   |
+| Resort Chart            | h | 4  | n/a   |
 | Total | h       | 14             | x           |
 
 ## Additional Libraries
@@ -121,14 +132,29 @@ app.get('/', async (req, res) => {
   - [Contentful](https://www.contentful.com/get-started/)
   - [Next.js](https://nextjs.org/)
   - [Sass](https://sass-lang.com/)
-  - [Framer Motion](https://www.framer.com/motion/)
   - [Chartjs](https://www.chartjs.org/)
 
 ## Code Snippet
 
-This is a code snippet I'm really proud of.
+This chunk of code is two separate fetch calls to display data on the page based on a zip code search. The zip is geocoded by Google Map API and then the latitude and longitude are assigned values. Then it queries the express proxy server (code snippet above) with the set latitudes and longitudes.
 
 ```javascript
+	const handleSearch = async (zipcode) => {
+		const googleApi = `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCMEjVA97XCiyFFpVaL1w8bFEw_KDERLuE&components=postal_code:${zipcode}`;
+		const res = await fetch(googleApi);
+		const json = await res.json();
+		setAreaData(json.results);
+		if (areaData.length > 0) {
+			setLat(await areaData[0].geometry.location.lat);
+			setLng(await areaData[0].geometry.location.lng);
+		}
+		const snotel = `https://avysavvy.herokuapp.com/`;
+		const response = await fetch(snotel + `request/${lat}/${lng}`);
+		const jsonObj = await response.json();
+		console.log('this is jsonObj', jsonObj);
+		setSnotelData(await jsonObj);
+	};
+
 ```
 
 ## Running Locally
@@ -137,4 +163,4 @@ This is a code snippet I'm really proud of.
  2. Clone into a new folder
  3. cd into the project
  4. npm i to install dev dependencies
- 5. npm run dev OR yarn start to test locally
+ 5. npm run dev OR yarn dev to test locally
