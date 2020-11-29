@@ -3,6 +3,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import styles from '../styles/photos.module.scss';
 import Footer from '../components/footer';
+import Loader from '../components/loader';
 import { motion } from 'framer-motion';
 
 const buttonVariants = {
@@ -88,7 +89,7 @@ export default function Photos() {
 			<h1 className={styles.heading1}>gallery</h1>
 			<h3 className={styles.heading2}>where can skiing take you?</h3>
 			<div className={styles.flex}>
-				{photos.length > 0 ? photoDisplay() : loading}
+				{photos.length > 0 ? photoDisplay() : <Loader />}
 			</div>
 			<form onSubmit={handleSubmit} className={styles.form} id='form'>
 				<h2>ADD A PIC</h2>
