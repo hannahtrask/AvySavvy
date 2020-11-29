@@ -1,7 +1,20 @@
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import styles from '../../styles/place.module.scss';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import Link from 'next/link';
 import Chart from 'chart.js';
+import { motion } from 'framer-motion';
+
+const buttonVariants = {
+	hover: {
+		scale: 1.3,
+		textShadow: '0px 0px 8px rgb(255, 255, 255)',
+		boxShadow: '0px 0px 8px rgb(255, 255, 255)',
+		transition: {
+			duration: 0.2,
+		},
+	},
+};
 
 const Place = () => {
 	const router = useRouter();
@@ -131,6 +144,12 @@ const Place = () => {
 				<h3 className={styles.title}>SWE and Snowpack</h3>
 				<canvas id='swe' width='300' height='100'></canvas>
 			</div>
+			<motion.button
+				variants={buttonVariants}
+				whileHover='hover'
+				className={styles.button}>
+				<Link href='/'>home</Link>
+			</motion.button>
 		</>
 	);
 };

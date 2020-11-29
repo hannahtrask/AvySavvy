@@ -29,3 +29,8 @@
 	font-family: 'Kreon', serif;
 	letter-spacing: 1px;
 }
+
+.button {
+	@include button;
+	margin-left: 40vw;
+}
