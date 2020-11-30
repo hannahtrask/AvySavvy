@@ -123,13 +123,13 @@ Upon further research, resort data requires payment, which is outside of this pr
 
 | Task | Priority | Estimated Time | Actual Time |
 | ---   | :---:   |  :---:         |       :---: |
-|   Animations    | m       | 5              | 2         |
+|   Animations    | m       | 5              | 4         |
 | Ski Quote Generator          | h | 4  | 1.5   |
 | Resort API Call            | h | 2  | n/a   |
 | Resort Display            | h | 3  | n/a   |
 | Resort Image Gallery            | h | 2  | n/a   |
 | Resort Chart            | h | 4  | n/a   |
-| Total | h       | 14             | 3.5           |
+| Total | h       | 14             | 7.5           |
 
 ## Additional Libraries
 
