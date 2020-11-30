@@ -3,7 +3,6 @@ import styles from '../../styles/datalist.module.scss';
 import Link from 'next/link';
 
 const Datalist = (props) => {
-	console.log(props);
 	const [allData, setAllData] = useState([]);
 
 	useEffect(() => {
@@ -11,7 +10,6 @@ const Datalist = (props) => {
 			setAllData(props.snotelData);
 		};
         getAllData();
-        console.log('this is allData', allData)
 	});
 
 	const allAreas = allData.map((station) => {
